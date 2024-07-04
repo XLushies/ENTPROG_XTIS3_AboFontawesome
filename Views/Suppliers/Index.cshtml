@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ENTPROG_XTIS3_Abo.Models.Supplier>
+
+<h2>Suppliers</h2>
+<i class=" fas fa-plus"></i>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CompanyName</th>
+            <th>Address</th>
+            <th>Representative</th>
+            <th>ContactNo</th>
+            <th>DateAdded</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CompanyName</td>
+                <td>@item.Address</td>
+                <td>@item.Representative</td>
+                <td>@item.ContactNo</td>
+                <td>@item.DateAdded</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SupplierID">
+                        <i class="fas fa-edit"></i>
+                        Edit
+                    </a> |
+
+                    <a asp-action="Details" asp-route-id="@item.SupplierID">Details</a> |
+
+                    <a asp-action="Delete" asp-route-id="@item.SupplierID">
+                        <i class="fas fa-trash"></i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
